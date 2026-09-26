@@ -43,4 +43,4 @@ masge run --graph graph.json --query "Your question" --anchor 0 --model deepseek
 Results are saved to `artifacts/run-001/result.json`. Use a new output directory
 for each run. Run `masge run --help` for options.
 
-Core implementation: [`src/masge/agentic`](src/masge/agentic). Tests: [`tests`](tests).
+Core implementation: [`src/masge/agentic`](src/masge/agentic).

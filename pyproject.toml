@@ -24,7 +24,7 @@ Repository = "https://github.com/FWVE/MA-SGE"
 Issues = "https://github.com/FWVE/MA-SGE/issues"
 
 [project.optional-dependencies]
-dev = ["pytest>=9.1,<10", "pytest-asyncio>=1,<2", "ruff>=0.15,<0.16", "mypy>=2.3,<3", "build>=1,<2"]
+dev = ["ruff>=0.15,<0.16", "mypy>=2.3,<3", "build>=1,<2"]
 
 [project.scripts]
 masge = "masge.cli:main"
@@ -36,12 +36,6 @@ namespaces = false
 
 [tool.setuptools.package-data]
 masge = ["py.typed"]
-
-[tool.pytest.ini_options]
-testpaths = ["tests"]
-pythonpath = ["src"]
-asyncio_mode = "auto"
-addopts = "-ra"
 
 [tool.ruff]
 target-version = "py311"
