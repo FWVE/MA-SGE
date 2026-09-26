@@ -1,0 +1,60 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ma-sge"
+version = "0.1.0"
+description = "Coordinator-led semantic graph reasoning with shared evidence judgments"
+readme = "README.md"
+requires-python = ">=3.11,<3.12"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [{name = "MA-SGE contributors"}]
+dependencies = [
+  "openai>=2.46,<3",
+  "pydantic>=2.13,<3",
+  "python-dotenv>=1.2,<2",
+  "networkx>=3.6,<4",
+  "numpy>=2.4,<3",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=9.1,<10", "pytest-asyncio>=1,<2", "ruff>=0.15,<0.16", "mypy>=2.3,<3", "build>=1,<2"]
+
+[project.scripts]
+masge = "masge.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["masge*"]
+namespaces = false
+
+[tool.setuptools.package-data]
+masge = ["py.typed"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+asyncio_mode = "auto"
+addopts = "-ra --basetemp=clean/pytest"
+
+[tool.ruff]
+target-version = "py311"
+line-length = 100
+extend-exclude = ["clean", "build", "dist", "artifacts"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM"]
+ignore = ["E501", "SIM102"]
+
+[tool.ruff.lint.isort]
+known-first-party = ["masge"]
+
+[tool.mypy]
+python_version = "3.11"
+files = ["src/masge"]
+strict = true
+warn_unused_ignores = true
+warn_redundant_casts = true
+show_error_codes = true
