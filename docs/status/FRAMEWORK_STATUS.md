@@ -5,6 +5,13 @@ Last verified: 2026-09-26.
 Public source repository: [FWVE/MA-SGE](https://github.com/FWVE/MA-SGE),
 default branch `main`.
 
+Published release: [v0.1.0](https://github.com/FWVE/MA-SGE/releases/tag/v0.1.0),
+source commit `60aa66de3a497f05dbdd02283721f746c854bbc7`. The release includes
+a source ZIP, wheel, source distribution, and SHA256 checksums. Its
+[release-commit CI run](https://github.com/FWVE/MA-SGE/actions/runs/36217911397)
+passed every check. The frozen release packages correspond to that tagged
+commit; subsequent publication notes on `main` do not alter those packages.
+
 ## Distribution
 
 The distribution is `ma-sge` version `0.1.0`, targeting Python 3.11. It contains
