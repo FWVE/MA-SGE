@@ -2,6 +2,9 @@
 
 Last verified: 2026-09-26.
 
+Public source repository: [FWVE/MA-SGE](https://github.com/FWVE/MA-SGE),
+default branch `main`.
+
 ## Distribution
 
 The distribution is `ma-sge` version `0.1.0`, targeting Python 3.11. It contains
@@ -28,12 +31,17 @@ outside this distribution; runtime regressions remain included.
 | Wheel and source distribution | Built with the setuptools PEP 517 backend |
 | Installed wheel | Import, module CLI, executable CLI, and graph validation passed outside the source tree |
 | Package contents | No benchmark, experiment, legacy codegen, credentials, or run artifacts included |
+| GitHub Actions, clean Ubuntu / Python 3.11 | Tests, Ruff, MyPy, isolated build, and installed-wheel smoke test passed on `3dec7f6` |
 | Live model/API validation | Not run during release preparation |
 
 The installed-wheel check used a fresh virtual environment with existing local
 dependencies exposed through system site packages; it was not a fresh network
-dependency-resolution test. The GitHub Actions workflow is included but has not
-been run remotely as part of this preparation.
+dependency-resolution test. The separate
+[GitHub Actions run](https://github.com/FWVE/MA-SGE/actions/runs/36217835010)
+installed dependencies in a clean environment and passed every check.
+Tests use pytest-managed temporary directories by default. Local Windows sandbox
+verification uses an explicit writable `--basetemp` directory because the shared
+system pytest directory is not accessible to that sandbox account.
 
 Validation environment: Windows, Python 3.11; OpenAI SDK 2.46.0, Pydantic 2.13.4,
 python-dotenv 1.2.2, NetworkX 3.6.1, NumPy 2.4.6, pytest 9.1.1,
