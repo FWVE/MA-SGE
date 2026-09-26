@@ -19,6 +19,10 @@ dependencies = [
   "numpy>=2.4,<3",
 ]
 
+[project.urls]
+Repository = "https://github.com/FWVE/MA-SGE"
+Issues = "https://github.com/FWVE/MA-SGE/issues"
+
 [project.optional-dependencies]
 dev = ["pytest>=9.1,<10", "pytest-asyncio>=1,<2", "ruff>=0.15,<0.16", "mypy>=2.3,<3", "build>=1,<2"]
 
@@ -37,7 +41,7 @@ masge = ["py.typed"]
 testpaths = ["tests"]
 pythonpath = ["src"]
 asyncio_mode = "auto"
-addopts = "-ra --basetemp=clean/pytest"
+addopts = "-ra"
 
 [tool.ruff]
 target-version = "py311"
